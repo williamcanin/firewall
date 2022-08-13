@@ -1,0 +1,15 @@
+[Unit]
+Description=Firewall using Iptables
+After=bar.service
+After=network.target
+After=syslog.target
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=/usr/bin/firewall on
+ExecReload=/usr/bin/firewall on
+ExecStop=/usr/bin/firewall off
+
+[Install]
+WantedBy=multi-user.target
